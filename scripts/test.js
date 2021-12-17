@@ -26,12 +26,7 @@ const updateUi = (data) =>{
     }
 
     //update day and night images
-    let timeSrc = null;
-    if(weather.IsDayTime){
-        timeSrc = "images/day.svg";
-    }else{
-        timeSrc = "images/night.svg";
-    }
+    let timeSrc = weather.IsDayTime ? "images/day.svg" : "images/night.svg";
     city_time.setAttribute('src', timeSrc);
 
     //update weather icons
