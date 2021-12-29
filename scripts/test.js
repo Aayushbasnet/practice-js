@@ -3,7 +3,7 @@ const card = document.querySelector('.card');
 const weather_details = document.querySelector('.weather_details');
 const weather_icon = document.querySelector('.weather_icon img');
 const city_time = document.querySelector('img.city_time');
- 
+const forecast = new Forecast();
 // update ui
 const updateUi = (data) =>{
     console.log(data);
@@ -15,8 +15,8 @@ const updateUi = (data) =>{
             <h5 class="my-3">${cityDetails.EnglishName}</h5>
             <div class="my-3">${weather.WeatherText}</div>
             <div class="display-4 my-4">
-            <span>${weather.Temperature.Metric.Value}</span>
-            <span>&deg;C</span>
+                <span>${weather.Temperature.Metric.Value}</span>
+                <span>&deg;C</span>
             </div>  
         `;
     
@@ -36,15 +36,6 @@ const updateUi = (data) =>{
 
 };
 
-//update city
-const updateCity = async (city) => {
-    const cityDetails = await getCity(city);
-    const weather = await getWeather(cityDetails.Key);
-
-    return { cityDetails, weather };
-
-};
-
 cityForm.addEventListener('submit', e => {
     //to prevent reloading 
     e.preventDefault();
@@ -56,7 +47,7 @@ cityForm.addEventListener('submit', e => {
     cityForm.reset();
 
     //update the ui with new city
-    updateCity(city)
+    forecast.updateCity(city)
         .then(data => {
             updateUi(data);
         })
