@@ -19,7 +19,8 @@ h2 {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    background-image: url("../images/bg-1.jpg");
+    background-size: cover;
 }
 
 .countdown {
@@ -32,4 +33,34 @@ h2 {
 
 .day, .hour, .minute, .second {
     font-size: 3.5rem;
+    /* border: 1px solid #aaa; */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.second.change {
+    animation: secondCounter 1s ease-in-out infinite;
+}
+
+@keyframes secondCounter {
+    0% {transform: translateY(-40px); opacity: 0;}
+    50%{transform: translateY(0); opacity: 1;}
+    100%{transform: translateY(18px); opacity: 0;}
+
+  }
+
+.day.change, .hour.change, .minute.change {
+    animation: animateCounter 1s ease-in-out infinite;
+  }
+
+@keyframes animateCounter {
+    0% {transform: translateY(-10px); opacity: 0;}
+    100%{transform: translateY(0); opacity: 1;}
+    /* 100%{transform: translateY(40px); opacity: 0;} */
+
+}
+
+.celebration {
+    display: none;
+    min-height: 60vh;
 }
