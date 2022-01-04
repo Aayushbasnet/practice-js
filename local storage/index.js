@@ -49,7 +49,6 @@ class Countdown {
         if(gap < 1000){
             clearInterval(this.setInterval);
             displayCelebration();
-            // imageAlt();
         }
 
         this.updateUi(textDay, textHour, textMinute, textSecond, gap);
@@ -101,5 +100,5 @@ class Countdown {
     }
 }
 
-const countdown = new Countdown("Jan 1, 2022 00:00:00");
+const countdown = new Countdown("Jan 3, 2022 21:02:00");
 // countdown.start();
