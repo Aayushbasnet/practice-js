@@ -6,61 +6,82 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: aquamarine;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-h2 {
-    font-size: 5rem;
-    padding: 3rem;
-}
-
-.coming-soon {
-    min-height: 100vh;
+.questions-hud{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-image: url("../images/bg-1.jpg");
-    background-size: cover;
-}
-
-.countdown {
-    /* background-image: url("../images/countdown.jpg"); */
-    display: flex;
+    align-content: center;
+    flex-direction:column;
+    justify-content:space-between;
+    word-wrap: break-word;
+    word-break: break-all;
     text-align: center;
-    justify-content: space-between;
-    color: black;
+    background-color: rgb(233, 119, 119);
+    text-transform: uppercase;
 }
 
-.day, .hour, .minute, .second {
+.questions-hub > h1:nth-child(odd){
+    font-size: 2rem;
+}
+#rgbCode{
     font-size: 3.5rem;
-    /* border: 1px solid #aaa; */
-    padding: 10px;
-    /* border-radius: 10px; */
+    font-weight: 550;
 }
 
-.second.change {
-    animation: secondCounter 1s ease-in-out infinite;
+.menu-hud {
+    width: 100%;
+    height: 41px;
+    background-color: white;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    flex-direction: row;
+    color: black;
+    text-align: center;
 }
 
-@keyframes secondCounter {
-    0% {transform: translateY(-40px); opacity: 0;}
-    50%{transform: translateY(0); opacity: 1;}
-    100%{transform: translateY(18px); opacity: 0;}
-
-  }
-
-.day.change, .hour.change, .minute.change {
-    animation: animateCounter 1s ease-in-out infinite;
-  }
-
-@keyframes animateCounter {
-    0% {transform: translateY(-10px); opacity: 0;}
-    100%{transform: translateY(0); opacity: 1;}
-    /* 100%{transform: translateY(40px); opacity: 0;} */
-
+.gameStatus {
+    color: rgb(233, 119, 119);
+    font-size: 1.3rem;
+    padding-top: 5px;
+    position: relative;
 }
 
-.celebration {
-    display: none;
-    min-height: 60vh;
+div > .playAgainBtn, div > .easyLevelBtn, div > .hardLevelBtn {
+    outline: none;
+    height: 35px;
+    display:inline-block;
+    margin-top: 3px;
+    width: fit-content;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color:#F5E8E2;
+    border: none;
+    border-top: 1px solid black;
+    transition: ease-in-out 1s; 
+}
+div > .playAgainBtn:hover, div > .easyLevelBtn:hover, div > .hardLevelBtn:hover {
+    border-top: none;
+}
+div > .playAgainBtn::after, div > .easyLevelBtn::after, div > .hardLevelBtn::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgb(233, 119, 119);
+    transition: width .7s;
+}
+
+div > .playAgainBtn:hover::after, div > .easyLevelBtn:hover::after, div > .hardLevelBtn:hover::after {
+    width: 100%;
+    transition: width .3s;
+}
+
+div > .playAgainBtn:active, div > .easyLevelBtn:active, div > .hardLevelBtn:active{
+    background-color: rgba(250, 232, 232, 0.01);
+    transition: ease-in-out 0.1s;
 }

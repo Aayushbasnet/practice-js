@@ -7,44 +7,39 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Local Storage</title>
+    <title>Color-guessing-game</title>
 </head>
 
 <body>
+    <!-- question sections -->
+    <div class="questions-hud">
+        <h1>Color Guessing Game</h1>
+        <h1 id="rgbCode">RGB(255, 255, 255)</h1>
+        <h1>Guess the color above</h1>
+    </div>
 
-    <section class="celebration border border-dark mx-4">
-        <img class="celebration-image" src="../images/iron-man-snap.gif" alt="iron-man-snap" width="100%" height="100%">
-    </section>
-
-
-    <section class="coming-soon mx-4">
+    <!-- game menus -->
+    <div class="menu-hud">
         <div>
-            <!-- title -->
-            <h2>New Year Countdown!</h2>
-
-            <!-- countdown sections -->
-            <div class="countdown">
-                <div class="container-day">
-                    <h3 class="day"> <span>00</span>   </h3>
-                    <h3>Day</h3>
-                </div>
-                <div class="container-hour">
-                    <h3 class="hour">00</h3>
-                    <h3>Hour</h3>
-                </div>
-                <div class="container-minute">
-                    <h3 class="minute">00</h3>
-                    <h3>Minute</h3>
-                </div>
-                <div class="container-second">
-                    <h3 class="second">00</h3>
-                    <h3>Second</h3>
-                </div>
-            </div>
-            <!-- image section -->
-            <!-- <img src="../images/countdown.jpg" alt="countdown image"> -->
+            <button class="playAgainBtn" id="playAgain">New Colors</button>
         </div>
-    </section>
+        <span class="gameStatus">Let's Play !!!</span>
+        <div>
+            <button class="easyLevelBtn" id="easyBtn">Easy</button>
+            <button class="hardLevelBtn" id="hardBtn">Hard</button>
+        </div>
+    </div>
+
+    <!-- color button to select answer -->
+    <div class="color-box">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
 
     <script src="index.js"></script>
 </body>
