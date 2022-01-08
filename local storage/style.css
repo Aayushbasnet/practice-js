@@ -62,7 +62,7 @@ div > .playAgainBtn, div > .easyLevelBtn, div > .hardLevelBtn {
     background-color:#F5E8E2;
     border: none;
     border-top: 1px solid black;
-    transition: ease-in-out 1s; 
+    text-transform: uppercase;
 }
 div > .playAgainBtn:hover, div > .easyLevelBtn:hover, div > .hardLevelBtn:hover {
     border-top: none;
@@ -84,4 +84,23 @@ div > .playAgainBtn:hover::after, div > .easyLevelBtn:hover::after, div > .hardL
 div > .playAgainBtn:active, div > .easyLevelBtn:active, div > .hardLevelBtn:active{
     background-color: rgba(250, 232, 232, 0.01);
     transition: ease-in-out 0.1s;
+}
+
+.color-box {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    grid-template-rows: repeat(3, 240px);
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 15px;
+}
+
+.box {
+    cursor: pointer;
+    width: 220px;
+    height: 220px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    border: 1px solid #aaa;
 }
