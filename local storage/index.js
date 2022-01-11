@@ -3,12 +3,14 @@ const easyBtn = document.querySelector('#easyBtn');
 const hardBtn = document.querySelector('#hardBtn');
 const colorBox = document.querySelector('.color-box');
 const boxes = document.querySelectorAll('.box');
-const playBtn = document.querySelector('playAgainBtn');
+const playBtn = document.querySelector('.playAgainBtn');
 const questionsHud = document.querySelector('.questions-hud');
 var boxValue = 6;
-// const colors = generateRandomColor(6);
-// const pickedColor = colors[Math.floor(Math.random()*6)];
-// rgbColor.textContent = pickedColor;
+
+var colors = generateRandomColor(6);
+var pickedColor = colors[Math.floor(Math.random()*6)];
+rgbColor.textContent = pickedColor;
+
 const gameStatus = document.querySelector('.gameStatus');
 gameStatus.textContent = "Let's Play !!!";
 
@@ -72,3 +74,60 @@ hardBtn.addEventListener('click', () => {
         }
     }
 });
+
+// play button
+playBtn.addEventListener('click', () => {
+    questionsHud.style.backgroundColor = "rgb(233, 119, 119)"; // reset background color of question hud
+    gameStatus.textContent = "Let's Play !!!";
+    colors = generateRandomColor(boxValue);
+    pickedColor = colors[Math.floor(Math.random()*boxValue)];
+    rgbColor.textContent = pickedColor;
+
+    for(let i=0; i< boxes.length; i++){
+        boxes[i].style.backgroundColor = colors[i];
+    }
+});
+
+for(let i = 0; i < colors.length; i++){
+    boxes[i].style.backgroundColor = colors[i];
+    boxes[i].addEventListener('click', () =>{
+        const selectedColor =this.style.backgroundColor;
+        console.log(selectedColor, "----", this.style.backgroundColor);
+        if(selectedColor === this.style.backgroundColor){
+            win();
+        }else {
+            lose(this);
+        }
+    });
+}
+
+function win(){
+    // updating bg colors of all boxes to correct anwser color
+    for(let i = 0; i < colors.length; i++){
+        boxes[i].style.backgroundColor = pickedColor;
+    }
+    questionsHud.style.backgroundColor = "rgb(233, 119, 119)"; // reset background color of question hud
+    gameStatus.textContent = "Correct!!!";  
+};
+
+function lose(a) {
+    console.log("You lost");
+    a.style.backgroundColor = 'aquamarine';
+    gameStatus.textContent = "Try Again!!!";  
+};
+
+function generateRandomColor(num){
+    var arr = [];
+    for(let i = 0; i < num; i++){
+        arr.push(randomColor());
+    }
+    console.log(arr);
+    return arr;
+};
+
+function randomColor(){
+    var r = Math.floor(Math.random()*256);
+    var g = Math.floor(Math.random()*256);
+    var b = Math.floor(Math.random()*256);
+    return `rgb(${r}, ${g}, ${b})`;
+};
