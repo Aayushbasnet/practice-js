@@ -57,14 +57,14 @@ hardBtn.addEventListener('click', () => {
     easyBtn.style.backgroundColor = "#F5E8E2";
     easyBtn.style.color = "black";
 
-    // generating 3 random colors and picking 1
+    // generating 6 random colors and picking 1
     // colors = generateRandomColor(boxValue);
     // pickedColor = colors[Math.floor(Math.random()*boxValue)];
     // rgbColor.textContent = pickedColor;
 
     console.log(boxes.length);
     
-    // assigning random colors to 3 boxes
+    // assigning random colors to 6 boxes
     for(let i = 0; i < boxes.length; i++){
         if(colors[i]){
             boxes[i].style.backgroundColor = colors[i];
